@@ -50,13 +50,7 @@ class LicensePlateMetadataServiceProvider extends ServiceProvider implements Has
             'connection'   => 'mysql',
             'migrations'   => [
                 'local_path' => base_path() . '/vendor/larangular/license-plate-metadata/database/migrations',
-            ],
-            'seeds'        => [
-                'local_path' => __DIR__ . '/../database/seeds',
-            ],
-            'seed_classes' => [
-                \LicensePlateMetadataTableSeeder::class,
-            ],
+            ]
         ]);
     }
 
