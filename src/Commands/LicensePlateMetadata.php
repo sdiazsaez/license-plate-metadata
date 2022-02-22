@@ -7,7 +7,7 @@ use Larangular\LicensePlateMetadata\Http\Controllers\LicensePlateMetadata\Licens
 
 class LicensePlateMetadata extends Command {
 
-    protected $signature   = 'lp:get {--licenseplate= : Valid chilean license plate }';
+    protected $signature   = 'licenseplate:get {--licenseplate= : Valid chilean license plate }';
     protected $description = 'Scrape and load missing chilean automobile license plates.';
     private   $LPController;
 
