@@ -27,7 +27,7 @@ class LicensePlateMetadataServiceProvider extends ServiceProvider implements Has
 
     public function register() {
         $this->app->register(LPScraperServiceProvider::class);
-        $this->mergeConfigFrom(__DIR__ . '/../config/license-plate-metadata.php', 'license-plate-scrapper');
+        $this->mergeConfigFrom(__DIR__ . '/../config/license-plate-metadata.php', 'license-plate-metadata');
         $this->app->singleton('LPController', function () {
             return new Http\Controllers\LicensePlateMetadata\LicensePlateMetadataController();
         });
