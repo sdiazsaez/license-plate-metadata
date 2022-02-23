@@ -19,7 +19,7 @@ class LicensePlateMetadata extends Command {
     public function handle() {
         $lp = $this->option('licenseplate');
         if (!empty($lp)) {
-            $this->LPController->getLicensePlateMetadata($lp);
+            $this->info(json_encode($this->LPController->getLicensePlateMetadata($lp)));
         }
     }
 }
