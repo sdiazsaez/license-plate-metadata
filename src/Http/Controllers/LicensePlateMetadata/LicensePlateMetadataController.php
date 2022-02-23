@@ -15,7 +15,7 @@ class LicensePlateMetadataController {
 
     public function getLicensePlateMetadata(string $licensePlate): ?LicensePlateMetadata {
         $response = LicensePlateMetadata::byLicensePlate($licensePlate)
-                                        ->get();
+                                        ->first();
 
         if (!$response) {
             $scrapedLP = $this->scraper->getLicensePlateMetadata($licensePlate);
