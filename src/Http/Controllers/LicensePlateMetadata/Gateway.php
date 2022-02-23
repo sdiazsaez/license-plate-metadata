@@ -19,16 +19,12 @@ class Gateway extends Controller implements IGatewayModel {
     }
 
     public function allowedMethods() {
-        return [
-            'index',
-            'show',
-            'store',
-        ];
+        return [];
     }
 
-    public function current($date = null) {
-        $UFController = resolve(LicensePlateMetadataController::class);
-        return $UFController->current($date);
+    public function getLicensePlate(string $licensePlate) {
+        $lpc = resolve(LicensePlateMetadataController::class);
+        return $lpc->getLicensePlateMetadata($licensePlate);
     }
 
 }

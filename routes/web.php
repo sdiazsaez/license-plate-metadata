@@ -7,5 +7,5 @@ Route::group([
     'as' => 'larangular.api.license-plate-metadata.'
 ], function () {
     //Route::resource('/', 'LicensePlateMetadata\Gateway');
-    Route::get('/{licensePlate?}', 'LicensePlateMetadata\Gateway@current');
+    Route::get('/{licensePlate}', 'LicensePlateMetadata\Gateway@getLicensePlate');
 });
