@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "61b9008dacd62d826a88c5e22a385d84",
+    "content-hash": "0cdd74df84458289628cdd7fc4e7220f",
     "packages": [
         {
             "name": "doctrine/inflector",
@@ -723,6 +723,61 @@
                 "source": "https://github.com/sdiazsaez/lp-scraper/tree/0.1"
             },
             "time": "2022-02-17T16:23:05+00:00"
+        },
+        {
+            "name": "larangular/metadata",
+            "version": "0.2.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sdiazsaez/metadata.git",
+                "reference": "b7dd7a11c86875e634dec816b92279288ea199ce"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sdiazsaez/metadata/zipball/b7dd7a11c86875e634dec816b92279288ea199ce",
+                "reference": "b7dd7a11c86875e634dec816b92279288ea199ce",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "illuminate/support": "~5.8.0|^6.0|^7.0|^8.0",
+                "larangular/installable": "^0.1.0|^0.2.0",
+                "larangular/migration-package": "^0.1.0|^0.2.0",
+                "larangular/support": "^0.1.0|^0.2.0",
+                "php": ">=7.1"
+            },
+            "require-dev": {
+                "roave/security-advisories": "dev-latest"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Larangular\\Metadata\\MetadataServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Larangular\\Metadata\\": "./src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Simon Diaz",
+                    "email": "sdiaz.sz@gmail.com"
+                }
+            ],
+            "description": "freshwork/metable wrapper",
+            "support": {
+                "issues": "https://github.com/sdiazsaez/metadata/issues",
+                "source": "https://github.com/sdiazsaez/metadata/tree/0.2.8"
+            },
+            "time": "2021-08-17T21:54:02+00:00"
         },
         {
             "name": "larangular/migration-package",
@@ -4689,8 +4744,9 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=7.1"
+        "php": ">=7.1",
+        "ext-json": "*"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.0.0"
+    "plugin-api-version": "2.2.0"
 }

@@ -18,6 +18,7 @@ class CreateLicensePlateMetadataTable extends Migration {
 
     public function up() {
         $this->create(function (Blueprint $table) {
+            $table->increments('id')->unsigned();
             $table->string('license_plate')->unique();
             $table->string('license_plate_dv');
             $table->string('national_id');

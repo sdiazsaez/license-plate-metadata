@@ -4,12 +4,14 @@ namespace Larangular\LicensePlateMetadata\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Larangular\Installable\Facades\InstallableConfig;
+use Larangular\Metadata\Traits\Metable;
 use Larangular\RoutingController\Model as RoutingModel;
 
 class LicensePlateMetadata extends Model {
-    use RoutingModel;
+    use RoutingModel, Metable;
 
     protected $fillable = [
+        'id',
         'national_id',
         'name',
         'license_plate',
@@ -20,7 +22,11 @@ class LicensePlateMetadata extends Model {
         'year',
         'color',
         'engine_number',
-        'chassis'
+        'chassis',
+    ];
+
+    protected $with = [
+        'meta',
     ];
 
     public function __construct(array $attributes = []) {
@@ -38,4 +44,5 @@ class LicensePlateMetadata extends Model {
     public function scopeByNationalId($query, string $nationalId) {
         return $query->where('national_id', $nationalId);
     }
+
 }
