@@ -13,6 +13,7 @@ class LicensePlateMetadata extends Model {
         'national_id',
         'name',
         'license_plate',
+        'license_plate_dv',
         'type',
         'make',
         'model',
