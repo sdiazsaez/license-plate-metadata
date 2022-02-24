@@ -9,10 +9,13 @@ use Larangular\RoutingController\{Controller,
     Contracts\HasResource,
     Contracts\IGatewayModel,
     Contracts\RecursiveStoreable,
+    MakeResponse,
     RecursiveStore\RecursiveOption};
 
 
 class Gateway extends Controller implements IGatewayModel {
+
+    use MakeResponse;
 
     public function model() {
         return LicensePlateMetadata::class;
@@ -24,7 +27,7 @@ class Gateway extends Controller implements IGatewayModel {
 
     public function getLicensePlate(string $licensePlate) {
         $lpc = resolve(LicensePlateMetadataController::class);
-        return $lpc->getLicensePlateMetadata($licensePlate);
+        return $this->makeResponse($lpc->getLicensePlateMetadata($licensePlate));
     }
 
 }

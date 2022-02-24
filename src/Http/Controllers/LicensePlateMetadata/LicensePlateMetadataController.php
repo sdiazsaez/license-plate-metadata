@@ -14,8 +14,8 @@ class LicensePlateMetadataController {
     }
 
     public function getLicensePlateMetadata(string $licensePlate): ?LicensePlateMetadata {
-        $response = LicensePlateMetadata::byLicensePlate($licensePlate)
-                                        ->first();
+        $q = LicensePlateMetadata::byLicensePlate($licensePlate);
+        $response = $q->first();
 
         if (!$response) {
             $scrapedLP = $this->scraper->getLicensePlateMetadata($licensePlate);
@@ -23,11 +23,24 @@ class LicensePlateMetadataController {
             if (!$scrapedLP || empty($scrapedLP)) {
                 $this->tryEmailNotification($licensePlate);
             } else {
-                $response = LicensePlateMetadata::create($scrapedLP);
+                LicensePlateMetadata::create($scrapedLP);
+                $response = $q->first();
             }
         }
 
         return $response;
+    }
+
+    private function tryEmailNotification($content) {
+        $email = config('license-plate-metadata.on_value_fail.email_to_notify');
+        if (!is_null($email) && !empty($email)) {
+            $message = [
+                'HTTP_HOST' => @$_SERVER['HTTP_HOST'],
+                'CONTENT'   => $content,
+            ];
+
+            mail($email, 'LPScraper fail', json_encode($message));
+        }
     }
 
 }
