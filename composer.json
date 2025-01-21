@@ -17,7 +17,7 @@
         "larangular/migration-package" : "^0.1.0|^0.2.0",
         "larangular/installable"       : "^0.1.0|^0.2.0",
         "ext-json"                     : "*",
-        "larangular/metadata": "^0.2.8"
+        "larangular/metadata": "^0.2"
     },
     "autoload": {
         "psr-4": {
